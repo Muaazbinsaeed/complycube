@@ -1,0 +1,72 @@
+{
+  "clientID": "652faa46b387d60008afdb51",
+  "clientToken": "cmVmdGtuOjAxOjE3Mjk2OTk3OTQ6RHhjY3ZWdE1LVTdpOUI0aWhEVXBobDh5RWIz",
+  "stages": [
+    {
+      "name": "intro",
+      "title": "Green Bank ID verification",
+      "message": "We will now verify your identity so you can start trading."
+    },
+    {
+      "name": "consent",
+      "title": "Terms of Service"
+    },
+    {
+      "name": "documentCapture",
+      "title": "Document Capture",
+      "enableNFC": false,
+      "showGuidance": false,
+      "liveCapture": false,
+      "useMLAssistance": true,
+      "retryLimit": 1,
+      "countries": ["GB", "FR"],
+      "documentTypes": {
+        "passport": true,
+        "selfie": false,
+        "videoSelfie": true,
+        "driving_license": ["GB", "FR"],
+        "national_identity_card": ["GB", "FR"],
+        "residence_permit": ["GB", "FR"],
+        "bank_statement": ["GB", "FR"],
+        "council_tax_bill": ["GB", "FR"],
+        "utility_bill": ["GB", "FR"]
+      }
+    },
+    {
+      "name": "faceCapture",
+      "type": "photo",
+      "showGuidance": false,
+      "liveCapture": false,
+      "useMLAssistance": true,
+      "retryLimit": 1
+    },
+    {
+      "name": "poaCapture",
+      "showGuidance": false,
+      "liveCapture": false,
+      "useMLAssistance": true,
+      "retryLimit": 1
+    }
+  ],
+  "scheme": {
+    "headerTitle": "#ffffff",
+    "subheaderTitle": "#ffffff",
+    "textSecondary": "#ff0000",
+    "docTypeBgColor": "#ffffff",
+    "docTypeTextColor": "#ffffff",
+    "docTypeBorderColor": "#ffffff",
+    "textItemType": "#ffffff",
+    "blueBigType": "#ffffff",
+    "primaryButtonBgColor": "#0000ff",
+    "primaryButtonPressedBgColor": "#00ff00",
+    "primaryButtonBorderColor": "#ffffff",
+    "primaryButtonTextColor": "#0000ff",
+    "secondaryButtonBgColor": "#0000ff",
+    "secondaryButtonPressedBgColor": "#0000ff",
+    "secondaryButtonBorderColor": "#0000ff",
+    "secondaryButtonTextColor": "#0000ff",
+    "linkButtonTextColor": "#0000ff",
+    "popUpBgColor": "#0000ff",
+    "popUpTitleColor": "#0000ff"
+  }
+}
