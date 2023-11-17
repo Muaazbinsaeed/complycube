@@ -1,5 +1,4 @@
 import 'package:complycube/helpers/complycube_event_codes.dart';
-import 'package:complycube/models/settings.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -47,59 +46,79 @@ class _OpenComplyCubeExampleState extends State<OpenComplyCubeExample> {
   String? result;
   Future<void> initPlatformState() async {
     result = await Complycube.openCCubeNativeBuild(
-      settings: ComplyCubeSettings(
-        clientId: "652faa46b387d60008afdb51",
-        clientToken: "cmVmdGtuOjAxOjE3Mjk2OTk3OTQ6RHhjY3ZWdE1LVTdpOUI0aWhEVXBobDh5RWIz",
-        stages: [
-          WelcomeStage(
-            name: "intro",
-            title: "Green Bank ID verification",
-            message: "We will now verify your identity so you can start trading.",
-          ),
-          ConsentStage(
-            name: "consent",
-            title: "Terms of Service",
-            //message: "At My company, we are committed to protecting the privacy and security of our users. This privacy policy explains how we collect, use, and protect...",
-          ),
-          DocumentStage(
-            name: "documentCapture",
-            title: "Document Capture",
-            enableNfc: false,
-            showGuidance: true,
-            useLiveCapture: true,
-            useMlAssistance: true,
-            // retryLimit: 1,
-            // countries: ["DZ", "GB", "FR", "US"],
-            documentTypes: DocumentTypes(
-              passport: true,
-              //selfie: false,
-              //videoSelfie: false,
-              drivingLicense: ["DZ", "GB", "FR", "US"],
-              nationalIdentityCard: ["DZ", "GB", "FR", "US"],
-              residencePermit: ["DZ", "GB", "FR", "US"],
-              //bankStatement: ["DZ", "GB", "FR", "US"],
-              //councilTaxBill: ["DZ", "GB", "FR", "US"],
-              //utilityBill: ["DZ", "GB", "FR", "US"],
-            ),
-          ),
-          BiometricStage(
-            name: "faceCapture",
-            type: BiometricType.video,
-            showGuidance: false,
-            useLiveCapture: false,
-            useMlAssistance: true,
-            retryLimit: 1,
-          ),
-          AddressStage(
-            name: "poaCapture",
-            showGuidance: false,
-            useLiveCapture: false,
-            useMlAssistance: true,
-            retryLimit: 1,
-          ),
+      settings: {
+        "clientID": "652faa46b387d60008afdb51",
+        "clientToken": "cmVmdGtuOjAxOjE3Mjk2OTk3OTQ6RHhjY3ZWdE1LVTdpOUI0aWhEVXBobDh5RWIz",
+        "stages": [
+          {
+            "name": "intro",
+            "title": "Green Bank ID verification",
+            "message": "We will now verify your identity so you can start trading.",
+          },
+          {
+            "name": "consent",
+            "title": "Terms of Service",
+          },
+          {
+            "name": "documentCapture",
+            "title": "Document Capture",
+            "enableNFC": false,
+            "showGuidance": false,
+            "liveCapture": false,
+            "useMLAssistance": true,
+            "retryLimit": 1,
+            "countries": ["GB", "FR"],
+            "documentTypes": {
+              "passport": true,
+              //"selfie": false,
+              //"videoSelfie": true,
+              "driving_license": ["GB", "FR"],
+              "national_identity_card": ["GB", "FR"],
+              "residence_permit": ["GB", "FR"],
+              //"bank_statement": ["GB", "FR"],
+              //"council_tax_bill": ["GB", "FR"],
+              //"utility_bill": ["GB", "FR"]
+            }
+          },
+          {
+            "name": "faceCapture",
+            "mode": "photo",
+            "showGuidance": false,
+            "liveCapture": false,
+            "useMLAssistance": true,
+            "retryLimit": 1,
+          },
+          {
+            "name": "poaCapture",
+            "showGuidance": false,
+            "liveCapture": false,
+            "useMLAssistance": true,
+            "retryLimit": 1,
+          }
         ],
-        colorScheme: ComplyCubeColorScheme(primaryButtonBgColor: const Color(0xFF42A5F5)),
-      ),
+        "scheme": {
+          "primaryButtonBgColor": "#0000ff",
+          /* "headerTitle": "#ffffff",
+    "subheaderTitle": "#ffffff",
+    "textSecondary": "#ff0000",
+    "docTypeBgColor": "#ffffff",
+    "docTypeTextColor": "#ffffff",
+    "docTypeBorderColor": "#ffffff",
+    "textItemType": "#ffffff",
+    "blueBigType": "#ffffff",
+    "primaryButtonBgColor": "#0000ff",
+    "primaryButtonPressedBgColor": "#00ff00",
+    "primaryButtonBorderColor": "#ffffff",
+    "primaryButtonTextColor": "#0000ff",
+    "secondaryButtonBgColor": "#0000ff",
+    "secondaryButtonPressedBgColor": "#0000ff",
+    "secondaryButtonBorderColor": "#0000ff",
+    "secondaryButtonTextColor": "#0000ff",
+    "linkButtonTextColor": "#0000ff",
+    "popUpBgColor": "#0000ff",
+    "popUpTitleColor": "#0000ff" */
+        }
+      },
     );
 
     setState(() {});

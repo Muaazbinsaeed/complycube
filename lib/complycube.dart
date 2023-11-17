@@ -1,6 +1,5 @@
 export 'complycube_widget.dart';
 import 'package:complycube/models/events.dart';
-import 'package:complycube/models/settings.dart';
 
 import 'complycube_platform_interface.dart';
 import 'helpers/complycube_event_codes.dart';

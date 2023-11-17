@@ -1,6 +1,5 @@
 import 'package:complycube/helpers/complycube_event_codes.dart';
 import 'package:complycube/models/events.dart';
-import 'package:complycube/models/settings.dart';
 import 'package:flutter/material.dart';
 
 import 'complycube.dart';
