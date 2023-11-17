@@ -22,7 +22,7 @@ class Complycube {
     return ComplycubePlatform.instance.getPlatformVersion();
   }
 
-  static Future<String?> openCCubeNativeBuild({required ComplyCubeSettings settings}) {
-    return ComplycubePlatform.instance.openCCubeNativeBuild(settings: settings.toJson());
+  static Future<String?> openCCubeNativeBuild({required Map<String, dynamic> settings}) {
+    return ComplycubePlatform.instance.openCCubeNativeBuild(settings: settings);
   }
 }

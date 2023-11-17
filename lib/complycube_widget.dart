@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'complycube.dart';
 
 class ComplyCubeWidget extends StatefulWidget {
-  final ComplyCubeSettings settings;
+  final Map<String, dynamic> settings;
   // Declare callback functions
   final void Function(ComplyCubeEvent event)? onComplyCubeEvent;
   final void Function(ComplyCubeError error)? onCancelled;

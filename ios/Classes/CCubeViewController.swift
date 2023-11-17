@@ -117,7 +117,7 @@ class CCubeViewController: UIViewController {
                 case "faceCapture":
                     let builder = BiometricStageBuilder()
                     // Biometric type
-                    if let type = stage["type"] as? String {
+                    if let type = stage["mode"] as? String {
                         builder.setType(type: (type == "photo" ? BiometricType.photo : BiometricType.video))
                     }
                     // ML settings

@@ -34,7 +34,7 @@
     },
     {
       "name": "faceCapture",
-      "type": "photo",
+      "mode": "photo",
       "showGuidance": false,
       "liveCapture": false,
       "useMLAssistance": true,
