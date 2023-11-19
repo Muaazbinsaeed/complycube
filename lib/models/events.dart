@@ -45,3 +45,10 @@ class ComplyCubeError {
     return data;
   }
 }
+
+class EventData {
+  final int code;
+  final String description;
+
+  const EventData({required this.code, required this.description});
+}

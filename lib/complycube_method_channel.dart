@@ -29,9 +29,8 @@ class MethodChannelComplycube extends ComplycubePlatform {
 
   /// Can only be listened once. If have more than one subscription, only the last subscription can receive events.
   @override
-  Stream<List<ComplyCubeError>> get onError => errorsChannel
-      .receiveBroadcastStream()
-      .map((events) => List.castFrom<dynamic, Map<String, String>>(events).map((event) => ComplyCubeError.fromJson(event)).toList());
+  Stream<List<ComplyCubeError>> get onError => errorsChannel.receiveBroadcastStream().map((events) =>
+      List.castFrom<dynamic, Map<String, dynamic>>(events).map((event) => ComplyCubeError.fromJson(Map.castFrom<Object?, Object?, String, dynamic>(event))).toList());
 
   /// Can only be listened once. If have more than one subscription, only the last subscription can receive events.
   @override
@@ -39,7 +38,8 @@ class MethodChannelComplycube extends ComplycubePlatform {
 
   /// Can only be listened once. If have more than one subscription, only the last subscription can receive events.
   @override
-  Stream<ComplyCubeError> get onCancelled => errorChannel.receiveBroadcastStream().map((event) => ComplyCubeError.fromJson(event));
+  Stream<ComplyCubeError> get onCancelled =>
+      errorChannel.receiveBroadcastStream().map((event) => ComplyCubeError.fromJson(Map.castFrom<Object?, Object?, String, dynamic>(event)));
 
   /// Can only be listened once. If have more than one subscription, only the last subscription can receive events.
   @override

@@ -287,7 +287,7 @@ class CCubeViewController: UIViewController {
     private func errorToJson( error: ComplyCubeError) -> [String: Any]{
         return [
         "message": error.message,
-        "errorCode": error.errorCode,
+        "errorCode": error.errorCode.rawValue,
         "description": error.description
         ]
     }
