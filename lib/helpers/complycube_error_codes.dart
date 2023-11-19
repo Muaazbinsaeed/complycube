@@ -1,5 +1,6 @@
 // TODO: Add error codes, message and helper to set it
-import 'package:complycube/helpers/complycube_event_codes.dart';
+
+import '../models/events.dart';
 
 enum ComplyCubeErrorCode {
   Unknown,

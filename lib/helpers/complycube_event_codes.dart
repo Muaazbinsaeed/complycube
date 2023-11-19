@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import '../models/events.dart';
+
 enum ComplyCubeEvent {
   PROOF_OF_ADDRESS_STAGE_CAPTURE_GUIDANCE,
   CAMERA_ACCESS_PERMISSION,
@@ -39,13 +41,6 @@ enum ComplyCubeEvent {
   CONSENT_STAGE,
   COMPLETION_STAGE,
   INTRO,
-}
-
-class EventData {
-  final int code;
-  final String description;
-
-  const EventData({required this.code, required this.description});
 }
 
 // Extension of ComplyCUbeEvent enum
