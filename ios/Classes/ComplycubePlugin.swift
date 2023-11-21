@@ -31,11 +31,11 @@ public class ComplycubePlugin: NSObject, FlutterPlugin {
 
         // Present the view controller
         if (rootViewController is UINavigationController) {
-            (rootViewController as! UINavigationController).pushViewController(yourViewController, animated:true)
+            (rootViewController as! UINavigationController).pushViewController(yourViewController, animated: false)
             result("ViewController presented successfully::a")
         } else {
             let navigationController: UINavigationController! = UINavigationController(rootViewController: yourViewController)
-            rootViewController.present(navigationController, animated: true, completion: nil)
+            rootViewController.present(navigationController, animated: false, completion: nil)
             result("ViewController presented successfully::b")
         }
       } else {
