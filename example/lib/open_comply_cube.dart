@@ -123,11 +123,11 @@ class _OpenComplyCubeExampleState extends State<OpenComplyCubeExample> {
 
     if (result?.contains("popped!") ?? false) {
       pop();
+      if (kDebugMode) {
+        print(result);
+      }
     } else {
       setState(() {});
-    }
-    if (kDebugMode) {
-      print("popped!");
     }
   }
 

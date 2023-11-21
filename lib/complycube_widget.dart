@@ -56,11 +56,11 @@ class _ComplyCubeWidgetState extends State<ComplyCubeWidget> {
     );
     if (result?.contains("popped!") ?? false) {
       pop();
+      if (kDebugMode) {
+        print(result);
+      }
     } else {
       setState(() {});
-    }
-    if (kDebugMode) {
-      print("popped!");
     }
   }
 
