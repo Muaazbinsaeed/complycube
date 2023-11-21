@@ -4,15 +4,26 @@
 //
 
 import UIKit
+import Flutter
 import ComplyCubeMobileSDK
 
 
 class CCubeViewController: UIViewController {
+    var result: FlutterResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        result!("popped!")
+        if isAboutToClose {
+            //tell flutter
+            result!("popped!")
+        }
     }
     
     func openComplyCubeNativeFormBuilder(args: [String: AnyObject]? = nil) {
@@ -349,6 +360,14 @@ extension UIViewController {
             top = top!.presentedViewController!
         }
         return top!
+    }
+
+    // https://stackoverflow.com/questions/10248412/isbeingdismissed-not-set-in-viewwilldisappear
+    var isAboutToClose: Bool {
+        return
+            self.isBeingDismissed ||
+            self.isMovingFromParent ||
+            self.navigationController?.isBeingDismissed ?? false
     }
 }
 

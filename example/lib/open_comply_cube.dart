@@ -121,7 +121,18 @@ class _OpenComplyCubeExampleState extends State<OpenComplyCubeExample> {
       },
     );
 
-    setState(() {});
+    if (result?.contains("popped!") ?? false) {
+      pop();
+    } else {
+      setState(() {});
+    }
+    if (kDebugMode) {
+      print("popped!");
+    }
+  }
+
+  pop() {
+    Navigator.of(context).pop();
   }
 
   @override

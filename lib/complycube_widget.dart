@@ -1,5 +1,6 @@
 import 'package:complycube/helpers/complycube_event_codes.dart';
 import 'package:complycube/models/events.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'complycube.dart';
@@ -53,7 +54,18 @@ class _ComplyCubeWidgetState extends State<ComplyCubeWidget> {
     result = await Complycube.openCCubeNativeBuild(
       settings: widget.settings,
     );
-    setState(() {});
+    if (result?.contains("popped!") ?? false) {
+      pop();
+    } else {
+      setState(() {});
+    }
+    if (kDebugMode) {
+      print("popped!");
+    }
+  }
+
+  pop() {
+    Navigator.of(context).pop();
   }
 
   @override
