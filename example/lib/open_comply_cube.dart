@@ -32,13 +32,13 @@ class _OpenComplyCubeExampleState extends State<OpenComplyCubeExample> {
 
     Complycube.onSuccess.listen((result) {
       if (kDebugMode) {
-        print("CCube Errors:: ${result.toJson()}");
+        print("CCube Success:: ${result.toJson()}");
       }
     });
 
     Complycube.onCancelled.listen((error) {
       if (kDebugMode) {
-        print("CCube Errors:: ${error.toJson()}");
+        print("CCube Error:: ${error.toJson()}");
       }
     });
   }

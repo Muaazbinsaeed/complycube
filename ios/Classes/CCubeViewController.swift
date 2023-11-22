@@ -14,6 +14,7 @@ class CCubeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // self.navigationController?.view.backgroundColor = .clear
         
     }
 
@@ -28,11 +29,20 @@ class CCubeViewController: UIViewController {
         super.viewWillDisappear(animated)
 
         // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        // self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        // self.presentingViewController?.dismiss(animated: true, completion: nil)
+        // self.navigationController?.view.backgroundColor = .clear
+        // Go back to the previous view controller:
+        // self.navigationController?.popViewController(animated: animated)
+
+
+        // Go back to the root view controller:
+        // self.navigationController?.popToRootViewController(animated: animated)
+
         result!("popped!")
         if isAboutToClose {
             // Tell flutter
@@ -410,6 +420,11 @@ extension CCubeViewController: ComplyCubeMobileSDKDelegate {
         let cancel_error = self.errorToJson(error: error)
          // use cancel_error as dictionary
          CCubeEventErrorDelegate.fireEvent(cancel_error)
+         if let code = cancel_error["errorCode"] as? Int{
+            if code == 1{
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
+            }
+         }
     }
     
     public func onSuccess(_ result: ComplyCubeResult){

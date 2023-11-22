@@ -24,21 +24,22 @@ public class ComplycubePlugin: NSObject, FlutterPlugin {
       result("iOS " + UIDevice.current.systemVersion)
     case "openCCubeNativeBuild":
       let args = call.arguments as? [String: AnyObject]
-      if let rootViewController = UIApplication.shared.keyWindow?.rootViewController?.getAppViewController() {
+      if let rootViewController = UIApplication.shared.keyWindow?.rootViewController/* ?.getAppViewController() */ {
         // Create an instance of your view controller
         let yourViewController = CCubeViewController()
         yourViewController.openComplyCubeNativeFormBuilder(args: args)
         yourViewController.result = result
+        rootViewController.present(yourViewController, animated: false, completion: nil)
 
         // Present the view controller
-        if (rootViewController is UINavigationController) {
+        /* if (rootViewController is UINavigationController) {
             (rootViewController as! UINavigationController).pushViewController(yourViewController, animated: false)
             //result("ViewController presented successfully::a")
         } else {
             let navigationController: UINavigationController! = UINavigationController(rootViewController: yourViewController)
             rootViewController.present(navigationController, animated: false, completion: nil)
             //result("ViewController presented successfully::b")
-        }
+        } */
       } else {
           result(FlutterError(code: "c0", message: "Error: Could not present CCubeViewController", details: nil))
       }

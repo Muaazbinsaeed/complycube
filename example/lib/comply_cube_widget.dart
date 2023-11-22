@@ -110,7 +110,7 @@ class _ComplyCubeWidgetBuilderState extends State<ComplyCubeWidgetBuilder> {
         },
         onCancelled: (error) {
           if (kDebugMode) {
-            print("CCube Errors:: ${error.toJson()}");
+            print("CCube Error:: ${error.toJson()}");
           }
         },
         onComplyCubeEvent: (event) {
